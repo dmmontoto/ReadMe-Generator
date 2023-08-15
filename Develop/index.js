@@ -73,11 +73,53 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            console.error(`Error writing to ${fileName}: ${err}`);
+        } else {
+            console.log(`${filename} has been created.`)
+        }
+    });
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+        .prompt(questions)
+
+        .then(answers => {
+            const readmeContent = `## Tests\n\n
+            # ${answers.title}\n\n
+            ![GitHub](https://img.shields.io/github/license/${answers.username}/${answers.title})\n\n
+            ## Description\n\n
+            ${answers.description}\n\n
+            ## Table of Contents \n\n
+            - [Installation](#installation)\n
+            - [Usage](#usage)\n
+            - [Credits](#credits)\n
+            - [License](#license)\n
+            - [Badges](#badges)\n
+            - [Tests](#tests)\n
+            - [Questions](#questions)\n\n
+            ## Installation\n\n
+            ${answers.installation}\n\n
+            ## Usage\n\n
+            ${answers.usage}\n\n
+            ## Credits\n\n${answers.name}\n\n
+            ## License\n\n
+            [${answers.license}](LICENSE)\n\n
+            ## Badges\n\n
+            ![Languages](https://img.shields.io/github/languages/top/${answers.username}/${answers.title})\n\n
+            ## Tests\n\n
+            ${answers.tests}\n\n
+            ## Questions\n\n
+            For more information, check out my page: [Github](https://github.com/${answers.username})\n\n
+            For additional questions, please reach me at my email: ${answers.email}`;
+
+            writeToFile('README.md', readmeContent);
+        });
+
+}
 
 // Function call to initialize app
 init();

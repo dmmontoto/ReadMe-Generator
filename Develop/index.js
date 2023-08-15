@@ -68,6 +68,11 @@ const questions = [
             'MPL 2.0',
             'Unlicensed'
         ]
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Please provide any written tests for your application'
     }
 ];
 
@@ -77,7 +82,7 @@ function writeToFile(fileName, data) {
         if (err) {
             console.error(`Error writing to ${fileName}: ${err}`);
         } else {
-            console.log(`${filename} has been created.`)
+            console.log(fileName + "has been created.");
         }
     });
 }
@@ -88,33 +93,54 @@ function init() {
         .prompt(questions)
 
         .then(answers => {
-            const readmeContent = `## Tests\n\n
-            # ${answers.title}\n\n
-            ![GitHub](https://img.shields.io/github/license/${answers.username}/${answers.title})\n\n
-            ## Description\n\n
-            ${answers.description}\n\n
-            ## Table of Contents \n\n
-            - [Installation](#installation)\n
-            - [Usage](#usage)\n
-            - [Credits](#credits)\n
-            - [License](#license)\n
-            - [Badges](#badges)\n
-            - [Tests](#tests)\n
-            - [Questions](#questions)\n\n
-            ## Installation\n\n
-            ${answers.installation}\n\n
-            ## Usage\n\n
-            ${answers.usage}\n\n
-            ## Credits\n\n${answers.name}\n\n
-            ## License\n\n
-            [${answers.license}](LICENSE)\n\n
-            ## Badges\n\n
-            ![Languages](https://img.shields.io/github/languages/top/${answers.username}/${answers.title})\n\n
-            ## Tests\n\n
-            ${answers.tests}\n\n
-            ## Questions\n\n
-            For more information, check out my page: [Github](https://github.com/${answers.username})\n\n
-            For additional questions, please reach me at my email: ${answers.email}`;
+            const readmeContent = `
+# ${answers.title}
+
+![GitHub](https://img.shields.io/github/license/${answers.username}/${answers.username})
+
+## Description
+
+${answers.description}
+
+## Table of Contents 
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Badges](#badges)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+
+${answers.installation}
+
+## Usage
+
+${answers.usage}
+
+## Credits
+
+${answers.name}
+
+## License
+
+[${answers.license}](LICENSE)
+
+## Badges
+
+![Languages](https://img.shields.io/github/languages/top/${answers.username}/${answers.username})
+
+## Tests
+
+${answers.tests}
+
+## Questions
+
+For more information, check out my page: [Github](https://github.com/${answers.username})
+
+For additional questions, please reach me at my email: ${answers.email}`;
 
             writeToFile('README.md', readmeContent);
         });

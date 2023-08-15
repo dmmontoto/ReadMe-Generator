@@ -17,12 +17,32 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please provide a description for this project.'
+        message: 'Please provide a short description for this project.'
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Provide a step-by-step description of how to get the development environment running.'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions and examples for use. Include screenshots as needed.'
+    },
+    {
+        type: 'input',
+        name: 'credits',
+        message: 'Please list your collaborators, any third-party assets that require attribution, creators with links to their primary web presence, and tutorials used.'
     },
     {
         type: 'input',
         name: 'username',
         message: 'Please enter your GitHub username.'
+    },
+    {
+        type: 'input',
+        name: 'repository',
+        message: 'Please enter your specific repository name for ReadMe file.'
     },
     {
         type: 'input',
@@ -46,13 +66,15 @@ const questions = [
             'GNU GPL v2',
             'GNU LGP v2.1',
             'MPL 2.0',
-            'The Unlicense'
+            'Unlicensed'
         ]
     }
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    
+}
 
 // TODO: Create a function to initialize app
 function init() {}

@@ -80,9 +80,9 @@ const questions = [
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
         if (err) {
-            console.error(`Error writing to ${fileName}: ${err}`);
+            console.error("Error writing to " + fileName + ": " + err);
         } else {
-            console.log(fileName + "has been created.");
+            console.log(fileName + " has been created.");
         }
     });
 }
@@ -93,10 +93,9 @@ function init() {
         .prompt(questions)
 
         .then(answers => {
-            const readmeContent = `
-# ${answers.title}
+            const readmeContent = `# ${answers.title}
 
-![GitHub](https://img.shields.io/github/license/${answers.username}/${answers.username})
+![GitHub](https://img.shields.io/github/license/${answers.username}/${answers.repository})
 
 ## Description
 
@@ -130,7 +129,7 @@ ${answers.name}
 
 ## Badges
 
-![Languages](https://img.shields.io/github/languages/top/${answers.username}/${answers.username})
+![Languages](https://img.shields.io/github/languages/top/${answers.username}/${answers.repository})
 
 ## Tests
 

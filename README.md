@@ -20,7 +20,7 @@ This project allows the user to be able to create a whole README.md file by just
 
 In order to get the environment to run, the user will need to use a few commands, such as `npm init` and `npm install inquirer`. The user should also check that the right version of inquirer is installed, which is version 6.3.1. 
 
-![Packages](assets/images/json.png)
+![Packages](Develop/assets/images/json.png)
 
 ## Usage
 
